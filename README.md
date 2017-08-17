@@ -273,3 +273,128 @@ public class welcom extends javax.swing.JFrame {
 }
 
 
+//CHAT QUEUE
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gui;
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+/**
+ *
+ * @author Bryon
+ */
+
+public class GUIlexicon implements GUIconstants {
+    private Formatter x;
+    private Scanner y;
+    
+    
+    String trial = "try";
+    String chat = "null";
+    String a = "name1";
+    String b = "name2";
+    String c = "temp";
+    String d = "temp";
+    
+    
+    
+    public void Alphabetize(){
+        int compare = a.compareTo(b);
+        if(compare < 0){
+        }
+        else{
+            d = b;
+            c = a;
+            a = d;
+            b = c;
+            
+        }
+    }
+        
+    public void MakeFile(){
+        try{
+            x = new Formatter(a+b+".txt");
+        }
+        catch(Exception e){
+            System.out.println("you got an error ded");
+        }
+    }
+    
+    public void EditFile(String g){
+        System.out.println(q);
+        q.add(a+": "+g);
+        System.out.println(q);
+        int qsize=q.size();
+        for(int i=0;i<qsize;i++){
+            String chat = q.remove();
+            q.add(chat);
+            x.format("%s",chat +"\n");
+        }
+    }
+        
+    
+    public void CloseFilex(){
+        x.close();
+    }
+    
+    public void CloseFiley(){
+        y.close();
+    }
+    
+    
+    public void ScanFile(){
+        try{
+            y= new Scanner(new File(a+b+".txt"));
+        }
+        catch(Exception e){
+            MakeFile();
+            System.out.println("No file");
+        }
+        
+    }
+    
+    public String ReadFile(){
+        while(y.hasNext()){
+            chat = y.nextLine();
+            q.add(chat);
+        }
+        return null;
+    }
+    
+    public String PrintText(){
+        
+        for(int i=0;i<q.size();i++){
+            String chatnew = q.remove();
+            q.add(chatnew);
+            System.out.println(chatnew);
+            return chatnew;
+        }
+        return null;
+    }
+    
+    public void Test(){
+        System.out.println(q);
+    }
+         
+    
+    
+    
+    
+    /*public static void main(String[] args) {
+        GUIlexicon a = new GUIlexicon();
+        a.Alphabetize();
+        a.MakeFile();
+        a.EditFile();
+        a.CloseFilex();
+        a.ScanFile();
+        a.ReadFile();
+        a.CloseFiley();
+        }
+*/
+
+  
+}
